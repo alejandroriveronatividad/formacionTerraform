@@ -1,0 +1,21 @@
+/* 
+Comentario
+1
+2
+*/
+
+
+terraform {  #esto es otro comentario
+#esta marca solo aparece UNA vez
+    
+}
+
+provider NOMBRE_DEL_PROVEEDOR { #nombre de los proveedores sacados de la docu oficial
+    #marca que puede aparecer varias veces segun proveedor
+    #si tiene .conf va aqui
+}
+
+#una marca resource por cada recurso de infra que debemos tener
+resource "NOMBRE_DEL_PROVEEDOR_tipo_de_recurso" "NOMBRE_IDENTIFICATIVO_DE_RECURSO" {
+    #aquí va la configuración del recurso, dependerá del tipo de recurso
+}
