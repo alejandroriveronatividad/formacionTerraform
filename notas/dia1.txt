@@ -1,3 +1,9 @@
 git add *
 git commit -m "MENSAJE"
 git push -u origin main
+
+------------------
+
+git remote add origin https://github.com/alejandroriveronatividad/formacionTerraform.git
+git branch -M main
+git push -u origin main
