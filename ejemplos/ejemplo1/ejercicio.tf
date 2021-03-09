@@ -11,6 +11,9 @@ terraform {  #esto es otro comentario
         docker = {
             source = "kreuzwerker/docker"
         }
+        null = {
+            source = "hashicorp/null"
+        }
     }
     
 }
@@ -20,9 +23,18 @@ provider docker { #nombre de los proveedores sacados de la docu oficial
     #si tiene .conf va aqui
 }
 
+provider null { 
+}
+
+resource "null_resource" "inventario"{
+    provisioner "local-exec" {
+        command = "rm inventario.txt"
+    }
+}    
 #una marca resource por cada recurso de infra que debemos tener
 resource "docker_container" "contenedor_nginx" {
-    name = "mi-contenedor-de-nginx"
+    for_each = toset(var.contenedores)
+    name = each.key
     image = docker_image.imagen_nginx.latest
     #aquí va la configuración del recurso, dependerá del tipo de recurso
     
